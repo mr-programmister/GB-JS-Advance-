@@ -42,23 +42,55 @@
 //     }
 //   }
 // }
+const API = 'https://raw.githubusercontent.com/GeekBrainsTutorial/online-store-api/master/responses';
+
+// В ДЗ переделать на промисы не используя fetch
+var getRequest = (url, callBack) => {
+  var xhr = new XMLHttpRequest();
+  xhr.open('GET', url, true);
+  xhr.onreadystatechange = () => {
+    if (xhr.readyState === 4) {
+      if (xhr.status !== 200) {
+        console.log('Error');
+      } else {
+        callBack(xhr.responseText);
+      }
+    }
+  };
+  xhr.send();
+}
+// - - - - - - - - - - - - - - - - - - - - - - - - - -
+
 class ProductList {
   constructor(container = '.products') {
     this.container = container;
     this._goods = []; // data
     this._allProducts = []; // массив экземпляров товаров на основе this._goods
 
-    this._fetchGoods();
-    this._render();
+    // this._fetchGoods();
+    // this._render();
+    this._getGoods()
+        .then((data) => {
+          this._goods = data;
+          this._render();
+        });
   }
 
-  _fetchGoods() {
-    this._goods = [
-      {id: 1, title: 'Notebook', price: 20000},
-      {id: 2, title: 'Mouse', price: 1500},
-      {id: 3, title: 'Keyboard', price: 5000},
-      {id: 4, title: 'Gamepad', price: 4500},
-    ];
+  sum() {
+    return this._goods.reduce((sum, { price }) => sum + price, 0);
+  }
+
+  // _fetchGoods() {
+  //   getRequest(API + '/catalogData.json', function (data) {
+  //     console.log(data);
+  //     this._goods = JSON.parse(data);
+  //     console.log(this._goods);
+  //     this._render();
+  //   }.bind(this));
+  // }
+  _getGoods() {
+    return fetch(`${API}/catalogData.json`)
+        .then(result => result.json()).catch(error => console.log(error));
   }
 
   _render() {
