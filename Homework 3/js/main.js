@@ -1,7 +1,10 @@
 <<<<<<< HEAD
 =======
+<<<<<<< HEAD
+=======
 <<<<<<<< HEAD:Homework 3/js/main.js
 >>>>>>> main
+>>>>>>> d2a4380fba97fe481521db62304c00ea3b90b14f
 // class ProductList {
 //   #goods;
 //   #allProducts;
@@ -50,6 +53,9 @@ const API = 'https://raw.githubusercontent.com/GeekBrainsTutorial/online-store-a
 
 // В ДЗ переделать на промисы не используя fetch
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> d2a4380fba97fe481521db62304c00ea3b90b14f
 const getRequest = (url, callBack) => {
   return data = new Promise((resolve, reject) => {
     setTimeout(() => {
@@ -66,6 +72,8 @@ const getRequest = (url, callBack) => {
   };
       xhr.send();
   })}, 0);
+<<<<<<< HEAD
+=======
 =======
 var getRequest = (url, callBack) => {
   var xhr = new XMLHttpRequest();
@@ -81,6 +89,7 @@ var getRequest = (url, callBack) => {
   };
   xhr.send();
 >>>>>>> main
+>>>>>>> d2a4380fba97fe481521db62304c00ea3b90b14f
 }
 // - - - - - - - - - - - - - - - - - - - - - - - - - -
 
@@ -92,8 +101,12 @@ class ProductList {
 <<<<<<< HEAD
     
 =======
+<<<<<<< HEAD
+    
+=======
 
 >>>>>>> main
+>>>>>>> d2a4380fba97fe481521db62304c00ea3b90b14f
     // this._fetchGoods();
     // this._render();
     this._getGoods()
@@ -104,13 +117,20 @@ class ProductList {
 <<<<<<< HEAD
     this._init();
 =======
+<<<<<<< HEAD
+    this._init();
+=======
 >>>>>>> main
+>>>>>>> d2a4380fba97fe481521db62304c00ea3b90b14f
   }
 
   sum() {
     return this._goods.reduce((sum, { price }) => sum + price, 0);
   }
 
+<<<<<<< HEAD
+
+=======
 <<<<<<< HEAD
 
 =======
@@ -123,6 +143,7 @@ class ProductList {
   //   }.bind(this));
   // }
 >>>>>>> main
+>>>>>>> d2a4380fba97fe481521db62304c00ea3b90b14f
   _getGoods() {
     return fetch(`${API}/catalogData.json`)
         .then(result => result.json()).catch(error => console.log(error));
@@ -133,6 +154,9 @@ class ProductList {
 
     for (const product of this._goods) {
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> d2a4380fba97fe481521db62304c00ea3b90b14f
       const productObject = new ProductItem(product);
       this._allProducts.push(productObject);
       block.insertAdjacentHTML('beforeend', productObject.render());
@@ -296,6 +320,9 @@ render() {
 }
 
 const cart = new CartList();
+<<<<<<< HEAD
+const catalog = new ProductList();
+=======
 const catalog = new ProductList();
 =======
       // console.log(new ProductItem(product).render());
@@ -391,3 +418,4 @@ list.sum();
 
 
 >>>>>>> main
+>>>>>>> d2a4380fba97fe481521db62304c00ea3b90b14f
